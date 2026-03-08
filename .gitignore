@@ -1,5 +1,6 @@
 *.xlsx
 *.exe
+build
 
 # Visual Studio Code
 .vscode/*

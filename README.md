@@ -20,12 +20,40 @@ Collects **CPU usage and memory stats** per process and generates a formatted Ex
 
 ## Build
 
+### Recommended: Run platform-specific build scripts
+
+- **Windows (cmd)**
+
+```cmd
+build_windows.bat
+```
+
+- **Linux/macOS (bash)**
+
+```bash
+chmod +x build_unix.sh
+./build_unix.sh
+```
+
+### Build directly with go build
+
 ```bash
 # Install dependencies
 go mod tidy
 
 # Build for current platform
 go build -o procmon.exe ./cmd
+```
+
+### Docker (Linux/macOS)
+
+```bash
+# Build image
+docker build -t procmon .
+
+# Run against the host's /proc to monitor host processes
+# (also share host PID namespace so procmon can see all processes)
+docker run --rm --pid=host -v /proc:/host_proc -w /host_proc procmon -p chrome -d 60
 ```
 
 ---
