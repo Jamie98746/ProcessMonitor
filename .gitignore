@@ -1,0 +1,13 @@
+*.xlsx
+*.exe
+
+# Visual Studio Code
+.vscode/*
+
+# Local history (VSCode extension)
+.history/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
